@@ -20,8 +20,8 @@ fetch('https://randomuser.me/api')      // ...1st Promise obj resolves to Respon
     }) 
   .then((userData) => {                 //...2nd Promise obj resolves to JSON
             const apiFirst = userData.results[0].name.first;
-            const apiLast = userData.results[1].name.last;
-            const apiCountry = userData.results[2].location.country;
+            const apiLast = userData.results[0].name.last;
+            const apiCountry = userData.results[0].location.country;
             const apiTime = userData.results[0].location.timezone.offset;
 
             const htmlData = `
@@ -29,6 +29,8 @@ fetch('https://randomuser.me/api')      // ...1st Promise obj resolves to Respon
             <h2 class="user">${apiFirst} ${apiLast}</h2>
             <p class="user">${apiFirst} lives in ${apiCountry} </p>
             <input type="hidden" name="apiFirst" value="${apiFirst}"/>
+            <input type="hidden" name="apiLast" value="${apiLast}"/>
+            <input type="hidden" name="apiCpuntry" value="${apiCountry}"/>
             `
             apiData = document.getElementById("apiData")
             apiData.innerHTML = htmlData
