@@ -18,7 +18,10 @@
 // DYNAMIC HTML
 $firstname = $_GET['apiFirst'];
 echo "<p><strong>$firstname</strong> has been added.</p>";
-
+$lastname = $_GET['apiFirst'];
+echo "<p><strong>$lastname</strong> has been added.</p>";
+$countrylocation = $_GET['apiFirst'];
+echo "<p><strong>$countrylocation</strong> has been added.</p>";
 
 // DATABASE OPERATIONS:
 // https://www.w3schools.com/php/php_mysql_insert.asp
@@ -36,7 +39,9 @@ if ($conn->connect_error) {
 }
 
 // SQL OPPERATIONS
-$sql = "INSERT INTO randuser VALUES ('$firstname')";
+$sql = "INSERT INTO randuser VALUES ('$firstname', '$lastname', '$countrylocation')";
+//$sql = "INSERT INTO randuser VALUES ('$lastname')";
+//$sql = "INSERT INTO randuser VALUES ('$countrylocation')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
@@ -50,6 +55,6 @@ $conn->close();
 
     <br><br>
     <button onclick="history.back()">Back</button>
-
+<footer><h3> This is what i did with bootstrap...</h3></footer>
 </body>
 </html>
